@@ -1,0 +1,20 @@
+{
+  "name": "grafana-faro-demo",
+  "version": "1.0.0",
+  "description": "This is a simple demo application created for the Grafana Emerging Champions Mentorship Program.   The goal of this project is to learn how to instrument a web application using the **Grafana Faro Web SDK**.",
+  "main": "script.js",
+  "scripts": {
+    "start": "python3 -m http.server 8001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwanduka/grafana-faro-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nwanduka/grafana-faro-demo/issues"
+  },
+  "homepage": "https://github.com/nwanduka/grafana-faro-demo#readme"
+}
