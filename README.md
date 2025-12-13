@@ -17,8 +17,11 @@ During the mentorship session, we will:
 ```
   grafana-faro-demo/
   │
-  ├── index.html #The simple demo webpage
-  └── README.md #Project documentation
+  ├── README.md
+  ├── index.html
+  ├── package.json
+  ├── script.js
+  └── styles.css
 ```
 
 ## 🖥️ Running the App Locally
