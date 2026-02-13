@@ -2,7 +2,7 @@
 
 A simple task manager web application instrumented with **Grafana Faro Web SDK** to demonstrate real user monitoring (RUM) and frontend observability.
 
-This project was created as part of the **Grafana Emerging Champions Mentorship Program** to learn hands-on implementation of frontend monitoring using Grafana Faro.
+This project was created as part of the **[Grafana Emerging Champions Mentorship Programme](https://community.grafana.com/t/grafana-emerging-champions-mentorship-programme/156954)** to learn hands-on implementation of frontend monitoring using Grafana Faro.
 
 ## 🎯 Project Goals
 
@@ -112,7 +112,6 @@ Through this project, I learned:
 
 - [Grafana Faro Documentation](https://grafana.com/docs/grafana-cloud/monitor-applications/frontend-observability/)
 - [Grafana Faro Web SDK](https://github.com/grafana/faro-web-sdk)
-- [Grafana Emerging Champions Program](https://grafana.com/community/)
 
 ## 📝 License
 
@@ -120,4 +119,4 @@ This project is open source and available under the MIT License.
 
 ----
 
-*Special thanks to Marie Cruz (@mdcruz) for her guidance on this project and throughout the mentorship programme. You rock 🤘*
+*Special thanks to Marie Cruz ([@mdcruz](https://github.com/mdcruz)) for her guidance on this project and throughout the mentorship programme. You rock 🤘*
