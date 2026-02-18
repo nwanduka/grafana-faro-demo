@@ -15,15 +15,9 @@
 
     webSdkScript.onload = () => {
       window.GrafanaFaroWebSdk.initializeFaro({
-        url: "https://faro-collector-prod-eu-north-0.grafana.net/collect/f901cd45134fbfa69fb8a3b19cf7b574",
-        app: {
-          name: "my-task-manager",
-          version: "1.0.0",
-          environment: "production",
-        },
-        
-      });
-
+        url: window.FARO_CONFIG.url,
+        app: window.FARO_CONFIG.app,
+        });
 
       // Load instrumentations at the onLoad event of the web-SDK and after the above configuration.
       // This is important because we need to ensure that the Web-SDK has been loaded and initialized before we add further instruments!
@@ -53,7 +47,7 @@
 <body>
     <div class="container">
         <h1>✨ My Task Manager</h1>
-        <p class="subtitle">This is a simple page we will instrument with Grafana Faro</p>
+        <p class="subtitle">This is a simple app to manage your tasks</p>
         
         <div class="input-group">
             <input 

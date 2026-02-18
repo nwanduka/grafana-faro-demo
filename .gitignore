@@ -1,0 +1,15 @@
+# Faro configuration with sensitive URLs
+config.js
+
+# Docker volumes
+/tempo-storage
+/loki-storage
+/prometheus-storage
+/grafana-storage
+
+# Node modules if you add any
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

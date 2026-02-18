@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # Grafana Faro Collector - receives telemetry from your frontend app
+  faro-collector:
+    image: grafana/faro-collector:latest
+    ports:
+      - "12345:12345"  # Collector endpoint
+    volumes:
+      - ./faro-collector-config.yaml:/etc/faro/config.yaml
+    command:
+      - '-config.file=/etc/faro/config.yaml'
+    depends_on:
+      - tempo
+      - loki
+      - prometheus
+
+  # Grafana - for visualization
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"  # Grafana UI
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_DISABLE_LOGIN_FORM=true
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
+    depends_on:
+      - tempo
+      - loki
+      - prometheus
+
+  # Tempo - for traces
+  tempo:
+    image: grafana/tempo:latest
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    ports:
+      - "3200:3200"   # Tempo
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+    volumes:
+      - ./tempo-config.yaml:/etc/tempo.yaml
+      - tempo-storage:/tmp/tempo
+
+  # Loki - for logs
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - loki-storage:/loki
+
+  # Prometheus - for metrics
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
+      - prometheus-storage:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+
+volumes:
+  grafana-storage:
+  tempo-storage:
+  loki-storage:
+  prometheus-storage:

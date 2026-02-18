@@ -1,0 +1,22 @@
+receiver:
+  http:
+    cors:
+      allowed_origins:
+        - "*"  # For development - restrict this in production
+    endpoint: "0.0.0.0:12345"
+
+traces:
+  exporter:
+    otlp:
+      endpoint: "tempo:4317"
+      insecure: true
+
+logs:
+  exporter:
+    loki:
+      endpoint: "http://loki:3100/loki/api/v1/push"
+
+metrics:
+  exporter:
+    prometheus:
+      endpoint: "0.0.0.0:12346"
